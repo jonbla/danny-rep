@@ -94,7 +94,7 @@ public class Robot extends IterativeRobot
 	Timer camThreadAuto;
 	Timer camThread;
 	Timer recording;
-
+	Timer Brutally_Murder_And_Kill_In_A_Very_Violent_Death;
 	AnalogInput pot1;		//Potentiometer, Compressor and solenoids
 	Compressor comp;
     DoubleSolenoid gearShift;
@@ -195,6 +195,7 @@ public class Robot extends IterativeRobot
     	camThreadAuto = new Timer();
     	camThread = new Timer();
     	recording = new Timer();
+    	Brutally_Murder_And_Kill_In_A_Very_Violent_Death = new Timer();
     
     	elevatorManual = false;
     	camMode = 1;
@@ -287,7 +288,7 @@ public class Robot extends IterativeRobot
     		elevatorThreadAuto.schedule(new TimerTask(){public void run(){elevatorOneTote();}}, 20, 20);
     		sensorThread.schedule(new TimerTask(){public void run(){getSensors();}}, 20, 20);
     		camThreadAuto.schedule(new TimerTask(){public void run(){camSetpoint();}}, 20, 20);
-    		
+    		Brutally_Murder_And_Kill_In_A_Very_Violent_Death.schedule(new TimerTask(){public void run(){kill_All_The_Things();}}, 15000);
     		if(autoMode == 0)
     		{
     			goOnce = false;
@@ -401,6 +402,7 @@ public class Robot extends IterativeRobot
     	}
     	
     	if (gotoSpot2)
+// line not found
     	{
 
     		leftArm.set(DoubleSolenoid.Value.kForward);
@@ -1239,6 +1241,7 @@ public class Robot extends IterativeRobot
     	elevatorThread2Auto.cancel();
     	sensorThreadAuto.cancel();
     }
+    
     public void record(){
     	//controller 1 adding value to list
         J1B1.add(joy.getRawButton(1));
@@ -1272,7 +1275,7 @@ public class Robot extends IterativeRobot
         
         
         loops++;
-        if(loops > 4){
+       /* if(loops > 4){
         	loops = 0;
         	
         	//printing controller 1 lists
@@ -1335,11 +1338,10 @@ public class Robot extends IterativeRobot
         	J2Rjoy.clear();
         	J2Ltrig.clear();
         	J2Rtrig.clear();
-        }
+        }*/
     }
     
     public void playback(){
-    	//J1B1.add(joy.getRawButton(1));
     	for (int i = 0; i < J1B1.size(); i++){
     		boolean buttonJ1B1 = J1B1.get(i);
     		boolean buttonJ1B2 = J1B2.get(i);
@@ -1388,6 +1390,72 @@ public class Robot extends IterativeRobot
     }
     
 //emulator methods DO NOT TOUCH----------------------------------------------------------------------------------------------------------
+    public void kill_All_The_Things(){
+    	//printing controller 1 lists
+    	System.out.println("joy1 button1: "+J1B1);   
+    	System.out.println("joy1 button2: "+J1B2);
+    	System.out.println("joy1 button3: "+J1B3);
+    	System.out.println("joy1 button4: "+J1B4);
+    	System.out.println("joy1 button5: "+J1B5);
+    	System.out.println("joy1 button6: "+J1B6);
+    	System.out.println("joy1 button7: "+J1B7);
+    	System.out.println("joy1 button8: "+J1B8);
+    	System.out.println("joy1 button9: "+J1B9);
+    	System.out.println("joy1 button10: "+J1B10);
+    	System.out.println("joy1 left stick: "+J1Ljoy);
+    	System.out.println("joy1 right stick: "+J1Rjoy);
+    	System.out.println();
+    	
+    	//printing controller 2 lists
+    	System.out.println("joy2 button1: "+J2B1);   
+    	System.out.println("joy2 button2: "+J2B2);
+    	System.out.println("joy2 button3: "+J2B3);
+    	System.out.println("joy2 button4: "+J2B4);
+    	System.out.println("joy2 button5: "+J2B5);
+    	System.out.println("joy2 button6: "+J2B6);
+    	System.out.println("joy2 button7: "+J2B7);
+    	System.out.println("joy2 button8: "+J2B8);
+    	System.out.println("joy2 button9: "+J2B9);
+    	System.out.println("joy2 button10: "+J2B10);
+    	System.out.println("joy2 left stick: "+J2Ljoy);
+    	System.out.println("joy2 right stick: "+J2Rjoy);
+    	System.out.println("joy2 left trigger: "+J2Ltrig);
+    	System.out.println("joy2 right trigger: "+J2Rtrig);
+    	System.out.println();
+    	
+    	//clearing lists
+    	J1B1.clear();
+    	J1B2.clear();
+    	J1B3.clear();
+    	J1B4.clear();
+    	J1B5.clear();
+    	J1B6.clear();
+    	J1B7.clear();
+    	J1B8.clear();
+    	J1B9.clear();
+    	J1B10.clear();
+    	J1Ljoy.clear();
+    	J1Rjoy.clear();
+    	
+    	J2B1.clear();
+    	J2B2.clear();
+    	J2B3.clear();
+    	J2B4.clear();
+    	J2B5.clear();
+    	J2B6.clear();
+    	J2B7.clear();
+    	J2B8.clear();
+    	J2B9.clear();
+    	J2B10.clear();
+    	J2Ljoy.clear();
+    	J2Rjoy.clear();
+    	J2Ltrig.clear();
+    	J2Rtrig.clear();
+    	
+    	recording.cancel();
+    	Brutally_Murder_And_Kill_In_A_Very_Violent_Death.cancel();
+    	
+    }
     
     public void elevatorLowE()
     {
