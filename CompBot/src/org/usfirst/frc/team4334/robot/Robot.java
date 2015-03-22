@@ -401,8 +401,8 @@ public class Robot extends IterativeRobot
     		stillPressed7 = true;
     	}
     	
+    	// line not found
     	if (gotoSpot2)
-// line not found
     	{
 
     		leftArm.set(DoubleSolenoid.Value.kForward);
@@ -1342,34 +1342,61 @@ public class Robot extends IterativeRobot
     }
     
     public void playback(){
-    	for (int i = 0; i < J1B1.size(); i++){
-    		boolean buttonJ1B1 = J1B1.get(i);
-    		boolean buttonJ1B2 = J1B2.get(i);
-    		boolean buttonJ1B3 = J1B3.get(i);
-    		boolean buttonJ1B4 = J1B4.get(i);
-    		boolean buttonJ1B5 = J1B5.get(i);
-    		boolean buttonJ1B6 = J1B6.get(i);
-    		boolean buttonJ1B7 = J1B7.get(i);
-    		boolean buttonJ1B8 = J1B8.get(i);
-    		boolean buttonJ1B9 = J1B9.get(i);
-    		boolean buttonJ1B10 = J1B10.get(i);
-    		double buttonJ1Ljoy = J1Ljoy.get(i);
-    		double buttonJ1Rjoy = J1Rjoy.get(i);
+    	boolean[] J1B1 = {};
+    	boolean[] J1B2 = {};
+    	boolean[] J1B3 = {};
+    	boolean[] J1B4 = {};
+    	boolean[] J1B5 = {};
+    	boolean[] J1B6 = {};
+    	boolean[] J1B7 = {};
+    	boolean[] J1B8 = {};
+    	boolean[] J1B9 = {};
+    	boolean[] J1B10 = {};
+    	double[] J1Ljoy = {};
+    	double[] J1Rjoy = {};
+    	
+    	boolean[] J2B1 = {};
+    	boolean[] J2B2 = {};
+    	boolean[] J2B3 = {};
+    	boolean[] J2B4 = {};
+    	boolean[] J2B5 = {};
+    	boolean[] J2B6 = {};
+    	boolean[] J2B7 = {};
+    	boolean[] J2B8 = {};
+    	boolean[] J2B9 = {};
+    	boolean[] J2B10 = {};
+    	double[] J2Ljoy = {};
+    	double[] J2Rjoy = {};
+    	double[] J2Ltrig = {};
+    	double[] J2Rtrig = {};
+    	for (int i = 0; i < J1B1.length; i++){
+    		boolean buttonJ1B1 = J1B1[i];
+    		boolean buttonJ1B2 = J1B2[i];
+    		boolean buttonJ1B3 = J1B3[i];
+    		boolean buttonJ1B4 = J1B4[i];
+    		boolean buttonJ1B5 = J1B5[i];
+    		boolean buttonJ1B6 = J1B6[i];
+    		boolean buttonJ1B7 = J1B7[i];
+    		boolean buttonJ1B8 = J1B8[i];
+    		boolean buttonJ1B9 = J1B9[i];
+    		boolean buttonJ1B10 = J1B10[i];
+    		double buttonJ1Ljoy = J1Ljoy[i];
+    		double buttonJ1Rjoy = J1Rjoy[i];
     		
-    		boolean buttonJ2B1 = J2B1.get(i);
-    		boolean buttonJ2B2 = J2B2.get(i);
-    		boolean buttonJ2B3 = J2B3.get(i);
-    		boolean buttonJ2B4 = J2B4.get(i);
-    		boolean buttonJ2B5 = J2B5.get(i);
-    		boolean buttonJ2B6 = J2B6.get(i);
-    		boolean buttonJ2B7 = J2B7.get(i);
-    		boolean buttonJ2B8 = J2B8.get(i);
-    		boolean buttonJ2B9 = J2B9.get(i);
-    		boolean buttonJ2B10 = J2B10.get(i);
-    		double buttonJ2Ljoy = J2Ljoy.get(i);
-    		double buttonJ2Rjoy = J2Rjoy.get(i);
-    		double buttonJ2Ltrig = J2Ltrig.get(i);
-    		double buttonJ2Rtrig = J2Ltrig.get(i);
+    		boolean buttonJ2B1 = J2B1[i];
+    		boolean buttonJ2B2 = J2B2[i];
+    		boolean buttonJ2B3 = J2B3[i];
+    		boolean buttonJ2B4 = J2B4[i];
+    		boolean buttonJ2B5 = J2B5[i];
+    		boolean buttonJ2B6 = J2B6[i];
+    		boolean buttonJ2B7 = J2B7[i];
+    		boolean buttonJ2B8 = J2B8[i];
+    		boolean buttonJ2B9 = J2B9[i];
+    		boolean buttonJ2B10 = J2B10[i];
+    		double buttonJ2Ljoy = J2Ljoy[i];
+    		double buttonJ2Rjoy = J2Rjoy[i];
+    		double buttonJ2Ltrig = J2Ltrig[i];
+    		double buttonJ2Rtrig = J2Rtrig[i];
     		
     		elevatorLowE();
     		elevatorHighE();
@@ -1454,6 +1481,11 @@ public class Robot extends IterativeRobot
     	
     	recording.cancel();
     	Brutally_Murder_And_Kill_In_A_Very_Violent_Death.cancel();
+    	System.out.println("NO LONGER RECORDING, PLEASE STOP!");
+    	System.out.println("NO LONGER RECORDING, PLEASE STOP!");
+    	System.out.println("NO LONGER RECORDING, PLEASE STOP!");
+    	System.out.println("NO LONGER RECORDING, PLEASE STOP!");
+    	System.out.println("NO LONGER RECORDING, PLEASE STOP!");
     	
     }
     
